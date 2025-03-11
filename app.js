@@ -27,3 +27,5 @@ db
 app.get('/', function(req, rest){
     rest.send("Está funcionando 3");
 })
+
+//Rotas dos trabalhos(jobs)

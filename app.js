@@ -8,5 +8,5 @@ app.listen(PORT, function(){
 })
 
 app.get('/', function(req, rest){
-    rest.send("Está funcionando");
+    rest.send("Está funcionando 3");
 })

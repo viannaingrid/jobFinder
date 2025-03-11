@@ -29,4 +29,4 @@ app.get('/', function(req, rest){
 })
 
 //Rotas dos trabalhos(jobs)
-app.use('/jobs', require('./routes/jobs'));
+app.use('/routes', require('./routes/routes'));

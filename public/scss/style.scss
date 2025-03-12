@@ -1,3 +1,59 @@
-h1 {
-    color: red;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
 }
+
+// navbar
+.navbar {
+    padding: 1rem;
+    border: 1px solid #CCC;
+}
+
+.navbar .nav-item a {
+    color: #212529;
+}
+
+.nav-item {
+    margin: 0 25px;
+}
+
+.navbar-expend-lg .navbar-nav .nav-link{
+    padding: 10px 25px;
+    font-weight: bold;
+}
+
+.navbar .nav-item .btn {
+    color: #FFF;
+    background-color: #3654dc;
+    font-size: 1rem;
+    width: 8em;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0.4rem #131380;
+
+    &:hover{
+        color: #FFF;
+        background-color: #3654dc;
+    }
+
+    &:active{
+        color: white;
+        box-shadow: 0 0.2rem #131380;
+        transform: translateY(0.2rem);
+    }
+
+    &:hover:not(:disable){
+        background-color: #3654dc;
+        color: #fff;
+    }
+
+    &:disable{
+        cursor: pointer;
+        color: #FFF;
+        background-color: #3654dc;
+    }
+}
+

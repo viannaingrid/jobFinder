@@ -25,8 +25,8 @@ db
 
 // Rotas
 app.get('/', function(req, rest){
-    rest.send("Está funcionando 3");
+    rest.send("Está funcionando");
 })
 
 //Rotas dos trabalhos(jobs)
-app.use('/jobs', require('./routes/routes'));
+app.use('/jobs', require('./routes/routes.js'));

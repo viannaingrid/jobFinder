@@ -168,3 +168,71 @@ a:not([href]):not([tabindex]){
 .new-job .new-job-label {
     display: block;
 }
+
+// página add.html
+
+#add-form-container {
+    margin-top: 100px;
+    
+    h2{
+        color: #5e86f4;
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    label{
+        font-weight: 700;
+    }
+
+    input, textarea {
+        border: solid 2px transparent;
+        background-color: #e5ebfc;
+    }
+
+    h1{
+        margin-bottom: 20px;
+    }
+}
+
+#form-box {
+    padding: 50px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.15);
+    border-radius: 6px;
+    background-color: #fff ;
+    margin-bottom: 50px;
+
+    button{
+        color: #FFF;
+        background-color: #3654dc;
+        font-size: 1.1rem;
+        width: 15em;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 0.4rem #131380;
+
+            &:hover{
+                color: #FFF;
+                background-color: #3654dc;
+            }
+
+            &:active{
+                color: white;
+                box-shadow: 0 0.2rem #131380;
+                transform: translateY(0.2rem);
+            }
+
+            &:hover:not(:disable){
+                background-color: #3654dc;
+                color: #fff;
+            }
+
+            &:disable{
+                cursor: pointer;
+                color: #FFF;
+                background-color: #3654dc;
+            }
+
+    }
+}

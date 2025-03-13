@@ -118,8 +118,12 @@
   margin-bottom: 35px;
 }
 
-.list-group-item img {
+.list-group-item imga {
   width: 80px;
+}
+
+.list-group-item a {
   position: absolute;
-  left: -90px;
+  right: 20px;
+  top: 35px;
 }/*# sourceMappingURL=style.css.map */

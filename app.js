@@ -15,7 +15,7 @@ app.listen(PORT, function(){
 app.use(bodyParser.urlencoded({ extended: false}));
 
 // handle bars
-app.set('views');
+app.set('views', path.join(__dirname, 'views'));
 
 // conexao db
 db

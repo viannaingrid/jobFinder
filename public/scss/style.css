@@ -68,10 +68,25 @@
 
 #main-title {
   padding: 30px 0;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 #main-subtitle {
   font-size: 1rem;
   padding-bottom: 80px;
+}
+
+#search-form {
+  padding: 30px 100px;
+}
+
+#search-form .col-md-10, #search-form .col-md2 {
+  padding: 0;
+}
+
+#search-form input, #search-form button {
+  width: 105%;
+  border-radius: 0;
+  height: 48px;
+  font-size: 18px;
 }/*# sourceMappingURL=style.css.map */

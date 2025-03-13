@@ -134,7 +134,7 @@
     background-color: #FFF;
     position: absolute;
     left: -40px;
-    top: calc(50% -40px);
+    top: calc(50% - 40px);
 }
 
 .list-group-item a {
@@ -144,5 +144,27 @@
     height: 50px;
     line-height: 35px;
     border: 1px solid transparent;
+    border-radius: 25px;
+    color: #ffffff;
 }
 
+a:not([href]):not([tabindex]){
+    color: #ffff;
+    text-decoration: none;
+}
+
+.new-job-label {
+    position: absolute;
+    background-color: #FFD500;
+    color: #4D5154;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px 10px;
+    right: 150px;
+    top: 40px;
+    display: none;
+}
+
+.new-job .new-job-label {
+    display: block;
+}

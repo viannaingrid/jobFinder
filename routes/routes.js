@@ -1,15 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const Job = require('../models/job.js');
-
-router.get('/test', (req, res) => {
-    res.send('deu certo');
-})
+const { where } = require('sequelize');
 
 // rota de add
 router.get('/add', (req, res) => {
-    res.render('add');
+    res.render('add.hbs');
 })
+
+// detalhe da vaga 
+router.get('/view/:id', (req,res) => Job.findOne({
+    where: {id: req.params.id}
+})).then(job => {
+    res.render('view', {
+        job
+    }).catch(err => console.log(err))
+});
 
 //add job via post 
 router.post('/add', (req, res) => {

@@ -15,11 +15,13 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Configuração do Handlebars para usar .hbs
-app.engine('hbs', engine({
-    extname: '.hbs', 
-    defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, 'views')
-}));
+
+    app.engine('hbs', engine({
+        extname: '.hbs',
+        defaultLayout: 'main',
+        layoutsDir: path.join(__dirname, 'views/layouts')
+    }))
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 

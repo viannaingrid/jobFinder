@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const db = require('./db/connection');
 const Job = require('./models/job.js');
+const { where } = require('sequelize');
 
 const app = express();
 const port = 3000;
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Configuração do Handlebars para usar .hbs
 app.engine('hbs', engine({
-    extname: '.hbs', // Define a extensão dos arquivos como .hbs
+    extname: '.hbs', 
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, 'views', 'layouts')
 }));
@@ -29,14 +30,20 @@ db.authenticate()
     .catch(err => console.error("Ocorreu um erro ao conectar:", err));
 
 // Rota principal
-app.get('/', async (req, res) => {
-    try {
-        const jobs = await Job.findAll({ order: [['createdAt', 'DESC']] });
-        res.render('index', { jobs });
-    } catch (error) {
-        console.error("Erro ao buscar jobs:", error);
-        res.status(500).send("Erro ao carregar os trabalhos.");
+app.get('/', (req, res) => {
+
+    let search = req.body.job;
+
+    if(!search){
+
+        Job.findAll({ 
+            where, 
+            order: [['createdAt', 'DESC']] })
+        .then(jobs => {
+            res.render('index', { jobs });
+        }); 
     }
+
 });
 
 // Rotas dos trabalhos (jobs)

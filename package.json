@@ -4,7 +4,8 @@
   "description": "Portal para desenvolvedores encontrarem empregos",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "sass": "sass public/scss/style.scss public/css/style.css --watch"
   },
   "keywords": [
     "dev",
@@ -24,6 +25,7 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "sass": "^1.85.1"
   }
 }

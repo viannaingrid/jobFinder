@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const db = require('./db/connection');
 const Job = require('./models/job.js');
 const { where } = require('sequelize');
+const sequelize = require('sequelize');
+const Op = sequelize.Op;
 
 const app = express();
 const port = 3000;
@@ -30,21 +32,26 @@ db.authenticate()
     .catch(err => console.error("Ocorreu um erro ao conectar:", err));
 
 // Rota principal
+
 app.get('/', (req, res) => {
+    let search = req.query.job;
 
-    let search = req.body.job;
-
-    if(!search){
-
+    if (!search) {
         Job.findAll({ 
-            where, 
-            order: [['createdAt', 'DESC']] })
-        .then(jobs => {
-            res.render('index', { jobs });
-        }); 
+            order: [['createdAt', 'DESC']] 
+        })
+        .then(jobs => res.render('index', { jobs }))
+        .catch(err => console.log(err));
+    } else {
+        Job.findAll({ 
+            where: { title: { [Op.like]: `%${search}%` } },
+            order: [['createdAt', 'DESC']] 
+        })
+        .then(jobs => res.render('index', { jobs }))
+        .catch(err => console.log(err));
     }
-
 });
+
 
 // Rotas dos trabalhos (jobs)
 app.use('/jobs', require('./routes/routes.js'));

@@ -34,7 +34,7 @@ db.authenticate()
 // Rota principal
 
 app.get('/', (req, res) => {
-    let search = req.query.job;
+    let search = req.body.job;
 
     if (!search) {
         Job.findAll({ 

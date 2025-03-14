@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.engine('hbs', engine({
     extname: '.hbs', 
     defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, 'views', 'layouts')
+    layoutsDir: path.join(__dirname, 'views')
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -35,19 +35,18 @@ db.authenticate()
 
 app.get('/', (req, res) => {
     let search = req.query.job;
-    console.log(search);
     if (!search) {
         Job.findAll({ 
             order: [['createdAt', 'DESC']] 
         })
-        .then(jobs => res.render('index', { jobs }))
+        .then(jobs => res.render('main', { jobs }))
         .catch(err => console.log(err));
     } else {
         Job.findAll({ 
             where: { title: { [Op.like]: `%${search}%` } },
             order: [['createdAt', 'DESC']] 
         })
-        .then(jobs => res.render('index', { jobs }))
+        .then(jobs => res.render('main', { jobs }))
         .catch(err => console.log(err));
     }
 });

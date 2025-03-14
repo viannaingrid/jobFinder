@@ -34,8 +34,8 @@ db.authenticate()
 // Rota principal
 
 app.get('/', (req, res) => {
-    let search = req.body.job;
-
+    let search = req.query.job;
+    console.log(search);
     if (!search) {
         Job.findAll({ 
             order: [['createdAt', 'DESC']] 

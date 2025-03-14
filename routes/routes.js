@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Job = require('../models/job.js');
-const { where } = require('sequelize');
 
 router.get('/test', (req, res) => {
     res.send('deu certo');
 })
 
-
-
-// rota de envio
+// rota de add
 router.get('/add', (req, res) => {
     res.render('add');
 })
